@@ -201,55 +201,6 @@ if (isset($_GET['user'])) {
                         </div>
                             </form>
                     </div>
-                          <div id="sem-table-div">
-                              <table class="bord">
-                    <thead>
-                        <tr>
-                            <th>Subjects</th>
-                            <th>Q1</th>
-                            <th>Q2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Add your data rows here -->
-
-                        <?php for ($i = 0; $i < count($teacherSubjectsSem1Array); $i++) {    ?>
-                            <tr>
-                                <td><?php echo $teacherSubjectsSem1Array[$i]; ?></td>
-                                <td><?php echo (!is_array($studGradesSem1Array)) ? $studGradesSem1Array : ((isset($studGradesSem1Array[$i])) ? $studGradesSem1Array[$i] : "no grade"); ?></td>
-
-                            </tr>
-                        <?php } ?>
-                        <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
-
-                <!-- sem2 table -->
-
-
-                <table class="bord1">
-                    <thead>
-                        <tr>
-                            <th>Subjects</th>
-                            <th>Q3</th>
-                            <th>Q4</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Add your data rows here -->
-                        <?php for ($i = 0; $i < count($teacherSubjectsSem2Array); $i++) { ?>
-                            <tr>    
-                            <td><?php echo $teacherSubjectsSem2Array[$i]; ?></td>
-                            <td><?php echo (!is_array($studGradesSem1Array)) ? $studGradesSem1Array : ((isset($studGradesSem1Array[$i])) ? $studGradesSem1Array[$i] : "no grade"); ?></td>
-                            </tr>
-                        <?php } ?>  
-                        <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
-                          </div>
-
-                        </body>
-                        </html>
                         <?php
         } else {
             echo "Fetching Failed or this may not be your student";

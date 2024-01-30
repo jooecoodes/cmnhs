@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $db_name = "grading-system-db";
+    $db_name = "cmnhs";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$db_name", $username, $password);

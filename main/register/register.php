@@ -21,7 +21,21 @@ if (isset($_POST['fname']) && isset($_POST['lname']) &&isset($_POST['email']) &&
         "grade" => $grade,
         "token" => $token,
     ];
-    if (empty($email) && empty($pwd) && empty($confPwd) && empty($strand) && empty($token)) {
+
+    $dataForReg = [
+        ":fname" => $fname,
+        ":lname" => $lname,
+        ":email" => $email
+    ];
+
+    // checks if user already exist 
+    $selectStmtForReg = $conn->prepare("SELECT * FROM teachers WHERE fname = :fname AND lname = :lname AND email = :email");
+    $selectStmtForReg->execute($dataForReg);
+    if($selectStmtForReg->rowCount() > 0) {
+        echo "User already exists";
+    }
+
+    if (empty($fname) && empty($lname) && empty($email) && empty($pwd) && empty($confPwd) && empty($strand) && empty($section) && empty($token)) {
         echo "Fill in all the fields";
     } else {
         // token verification

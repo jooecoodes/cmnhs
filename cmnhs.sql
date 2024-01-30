@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2024 at 08:38 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jan 30, 2024 at 05:51 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `grading-system-db`
+-- Database: `cmnhs`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `attendance` (
   `adviser` varchar(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `attendance`
@@ -47,8 +47,8 @@ INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`
 (1, 'Harvey123', 'Clarito', '11', 'humss', 'A', 'Nick Clarito', '', '2023-12-18 14:35:28'),
 (2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '', '2023-12-18 14:45:23'),
 (15, 'Ok', 'okkaayo', '11', 'humss', 'b', 'Joe Villacorta', '', '2024-01-09 22:34:13'),
-(17, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 22:48:17'),
-(18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30');
+(18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30'),
+(20, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-30 11:54:23');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `students` (
   `age` int(3) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `contact_no` int(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `students`
@@ -105,7 +105,7 @@ CREATE TABLE `teachers` (
   `sem1_subjects` varchar(255) NOT NULL,
   `sem2_subjects` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teachers`
@@ -115,7 +115,9 @@ INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `secti
 (66, 'Nick', 'Clarito', 'nickcharlesclarito@gmail.com', '123', 'humss', 'A', 11, 'Science,pr2', 'Dolore consectetur ,Reprehenderit veniam,Hic ex re', '986bcb997126bec18f36e09cb96ba298797133eb'),
 (67, 'Maria', 'Clarito', 'Maria@gmail.com', '123', 'stem', 'B', 12, '', '', '7b602d003fae4fa9129eba1a06463284b2de7e1d'),
 (68, 'Randy', 'Clarito', 'Randy@gmail.com', '123', 'humss', 'f', 12, '', '', 'efa06fde913a37d56de44784b5e1a9633c98c902'),
-(70, 'Joe', 'Villacorta', 'Joe@gmail.com', '123', 'ict', 'b', 12, '', '', 'b2e4ca5aed0ea0985c98737ec73ade217868694c');
+(70, 'Joe', 'Villacorta', 'Joe@gmail.com', '123', 'ict', 'b', 12, '', '', 'b2e4ca5aed0ea0985c98737ec73ade217868694c'),
+(71, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123123', 'abm', 'a', 11, '', '', '94e367ec280c5a999036bd9486f6c3e41c0857c9'),
+(72, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123', 'abm', 'a', 11, '', '', 'b81edf563c2c51c839e406cb7d8f38a320cb4b89');
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,7 @@ INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `secti
 CREATE TABLE `tokens` (
   `id` int(15) NOT NULL,
   `token` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tokens`
@@ -171,7 +173,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -183,13 +185,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
