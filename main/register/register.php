@@ -22,37 +22,45 @@ if (isset($_POST['fname']) && isset($_POST['lname']) &&isset($_POST['email']) &&
         "token" => $token,
     ];
 
-    $dataForReg = [
-        ":fname" => $fname,
-        ":lname" => $lname,
-        ":email" => $email
-    ];
 
     // checks if user already exist 
-    $selectStmtForReg = $conn->prepare("SELECT * FROM teachers WHERE fname = :fname AND lname = :lname AND email = :email");
-    $selectStmtForReg->execute($dataForReg);
-    if($selectStmtForReg->rowCount() > 0) {
-        echo "User already exists";
-    }
+    $selectStmtForReg = $conn->prepare("SELECT * FROM teachers WHERE fname = :fname AND lname = :lname");
+    $selectStmtForRegEmail = $conn->prepare("SELECT * FROM teachers WHERE email = :email");
 
-    if (empty($fname) && empty($lname) && empty($email) && empty($pwd) && empty($confPwd) && empty($strand) && empty($section) && empty($token)) {
-        echo "Fill in all the fields";
+    $selectStmtForReg->execute([
+        ":fname" => $fname,
+        ":lname" => $lname
+    ]);
+    $selectStmtForRegEmail->execute([
+        ':email'=> $email
+    ]);
+
+    if($selectStmtForRegEmail->rowCount() > 0) {
+        echo "Email is already registered";
+    } else if($selectStmtForReg->rowCount() > 0) {
+        echo "Full name is already registered";
     } else {
-        // token verification
-        if (verifyToken($conn, $token)) {
-            if ($pwd == $confPwd) {
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    echo "Email invalid";
+        if (empty($fname) || empty($lname) || empty($email) || empty($pwd) || empty($confPwd) || empty($token)) {
+            echo "Fill in all the fields";
+        } else {
+            // token verification
+            if (verifyToken($conn, $token)) {
+                if ($pwd == $confPwd) {
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        echo "Email invalid";
+                    } else {
+                        dataInsertion($conn, $data);
+                    }
                 } else {
-                    dataInsertion($conn, $data);
+                    echo "Password doesn't match";
                 }
             } else {
-                echo "Password doesn't match";
+                echo "Invalid Token";
             }
-        } else {
-            echo "Invalid Token";
         }
     }
+
+    
 }
 
 function verifyToken($conn, $token)

@@ -314,7 +314,15 @@ if (isset($_SESSION['teacherId'])) {
                                         <td>
                                             <p><?= $result['date'] ?></p>
                                         </td>
+                                        <td>
+                                        <form action="delete.php" method="post">
+                                        <input type="hidden" name="student-attendance-id" value="<?= $result['id'] ?>">
+                                        <input type="submit" value="Delete">
+                                        </td>
+                                        
+                                    </form>
                                     </tr>
+                                    
                                 <?php endforeach; ?>
                             </tbody>
 
@@ -324,7 +332,7 @@ if (isset($_SESSION['teacherId'])) {
 
                     ?>
                 </table>
-
+        
                 <!-- Export  -->
                
                 <form action="export.php" method="POST">
@@ -334,7 +342,11 @@ if (isset($_SESSION['teacherId'])) {
 
 
                
-
+                    <!-- Clear  -->
+                <form action="clear.php" method="post">
+                    <input type="hidden" name="clear-attendance" value="1">
+                    <input type="submit" value="Clear">
+                </form>
             </div>
        
         </main>  

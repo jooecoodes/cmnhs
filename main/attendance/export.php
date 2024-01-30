@@ -30,6 +30,7 @@ if (isset($_SESSION['teacherId'])) {
         } else {
             echo "No result";
         }
+        
     } else {
         echo "Export attendance error";
     }
