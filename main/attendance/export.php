@@ -15,6 +15,7 @@ if (isset($_SESSION['teacherId'])) {
         ]);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($stmt->rowCount() > 0) {
+
             // Generate CSV data
             $output = fopen('php://output', 'w');
             header('Content-Type: text/csv');
@@ -24,6 +25,20 @@ if (isset($_SESSION['teacherId'])) {
             foreach ($results as $row) {
                 fputcsv($output, $row);
             }
+            
+
+            $teacherFullName = $_SESSION['teacherFname'] . " " . $_SESSION['teacherLname'];
+        $sqlDeleteAttendance = $conn->prepare("DELETE FROM attendance WHERE adviser = :teacherfullname");
+
+        $sqlDeleteAttendance->execute([
+            ':teacherfullname' => $teacherFullName
+        ]);
+
+        if($sqlDeleteAttendance->rowCount() > 0) {
+            
+        } else {
+
+        }
 
             fclose($output);
             exit;
