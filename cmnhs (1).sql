@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 10:10 AM
+-- Generation Time: Feb 18, 2024 at 11:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,8 @@ INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`
 (1, 'Harvey123', 'Clarito', '11', 'humss', 'A', 'Nick Clarito', '', '2023-12-18 14:35:28'),
 (2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '', '2023-12-18 14:45:23'),
 (18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30'),
-(20, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-30 11:54:23');
+(20, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-30 11:54:23'),
+(42, 'Taylor', 'Swift', '12', 'ict', 'b', 'Joe Villacorta', '', '2024-02-18 17:02:24');
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `students`

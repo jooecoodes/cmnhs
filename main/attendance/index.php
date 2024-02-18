@@ -128,7 +128,7 @@ if (isset($_SESSION['teacherId'])) {
             <div class="leftside">
                 <!-- Import  -->
                 <video id="preview"></video>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+                <form action="import.php" method="post" enctype="multipart/form-data">
                     <label for="csvFile">Choose a CSV file:</label>
                     <input type="file" name="csvFile" id="csvFile" accept=".csv">
                     <button type="submit" name="submit">Import</button>
@@ -159,7 +159,6 @@ if (isset($_SESSION['teacherId'])) {
                 <table id="studTable" class="studdd">
                     <thead id="studTableHead">
                         <tr>
-                            <th>ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Gender</th>
@@ -225,9 +224,6 @@ if (isset($_SESSION['teacherId'])) {
 
                             <?php foreach ($resultSearch as $resultFromSearch) : ?>
                                 <tr>
-                                    <td>
-                                        <p><?= $resultFromSearch['id'] ?></p>
-                                    </td>
                                     <td>
                                         <p><?= $resultFromSearch['fname'] ?></p>
                                     </td>
