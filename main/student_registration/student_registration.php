@@ -9,6 +9,7 @@
         $studAdviser = htmlspecialchars($_POST['adviser']);
         $studGender = htmlspecialchars($_POST['gender']);
         $studAge = htmlspecialchars($_POST['age']);
+        $studGrdLvl = htmlspecialchars($_POST['grd_lvl']);
         $studToken = uniqid("",true);
 
         
@@ -31,7 +32,7 @@
                 echo "Error uploading file.";
             }
 
-            dataInsertion($conn, $new_img_name, $studFname, $studMname, $studLname,  $studSection, $studStrand, $studGender, $studAdviser, $studAge, $studToken);
+            dataInsertion($conn, $new_img_name, $studFname, $studMname, $studLname,  $studSection, $studStrand, $studGender, $studAdviser, $studAge, $studToken, $studGrdLvl);
 
 
             
@@ -42,9 +43,9 @@
 
     }
 
-    function dataInsertion($conn, $pfp, $fname, $mname, $lname, $section, $strand, $gender, $adviser, $age, $token)
+    function dataInsertion($conn, $pfp, $fname, $mname, $lname, $section, $strand, $gender, $adviser, $age, $token, $grdlvl)
 {
-    $stmtInsertion = $conn->prepare("INSERT INTO students(`profile`, fname, minitial, lname, section, strand, gender, adviser, age, token) VALUES(:pfp, :fname, :minitial, :lname, :section, :strand, :gender, :adviser, :age, :token)");
+    $stmtInsertion = $conn->prepare("INSERT INTO students(`profile`, fname, minitial, lname, section, strand, gender, adviser, age, token, grd_lvl) VALUES(:pfp, :fname, :minitial, :lname, :section, :strand, :gender, :adviser, :age, :token, :grdlvl)");
     $stmtInsertion->execute([
         ":pfp"=>$pfp,
         ":fname"=>$fname,
@@ -55,7 +56,8 @@
         ":gender"=>$gender,
         ":adviser"=>$adviser,
         ":age"=>$age,
-        ":token"=>$token
+        ":token"=>$token,
+        ":grdlvl"=>$grdlvl
     ]);
     if($stmtInsertion->rowCount() > 0) {
         echo "Successfully inserted student";

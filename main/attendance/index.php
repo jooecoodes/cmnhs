@@ -360,8 +360,11 @@ if (isset($_SESSION['teacherId'])) {
     echo "You're not logged in or authorized to access this page";
 }
 
-
-
+$teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] : "teacher Fname not set";
+$teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
+ $teacherFullName = $teacherFname . ' ' . $teacherLname;
+ echo $teacherFullName;
+ echo $_SESSION['test'];
 
 ob_end_flush(); // Flush output buffer and send to the browser
 ?>

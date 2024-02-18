@@ -21,6 +21,7 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
     $studGradelvl = $_POST['grd_lvl'];
     $studSection = $_POST['section'];
     $studAdviser = $_POST['adviser'];
+    $_SESSION['test'] = $studAdviser;
     $studStrand = $_POST['strand'];
     $studDate = $_POST['date'];
 
