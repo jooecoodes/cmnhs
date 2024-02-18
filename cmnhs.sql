@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2024 at 05:51 AM
+-- Generation Time: Feb 18, 2024 at 10:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,6 @@ CREATE TABLE `attendance` (
 INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`, `adviser`, `gender`, `date`) VALUES
 (1, 'Harvey123', 'Clarito', '11', 'humss', 'A', 'Nick Clarito', '', '2023-12-18 14:35:28'),
 (2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '', '2023-12-18 14:45:23'),
-(15, 'Ok', 'okkaayo', '11', 'humss', 'b', 'Joe Villacorta', '', '2024-01-09 22:34:13'),
 (18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30'),
 (20, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-30 11:54:23');
 
@@ -63,11 +62,9 @@ CREATE TABLE `students` (
   `minitial` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `section` varchar(50) NOT NULL,
+  `strand` varchar(200) NOT NULL,
   `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
+  `grd_lvl` int(5) NOT NULL,
   `token` varchar(50) DEFAULT NULL,
   `profile` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
@@ -80,12 +77,20 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `LRN`, `fname`, `minitial`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`, `gender`, `age`, `birthdate`, `contact_no`) VALUES
-(1, '743827487348', 'Tatum', 'Et est esse provid', 'Cleveland', 'A', 'Nick Clarito', NULL, NULL, '', NULL, '658522e4525641.10604769', 'Cleveland659ba655d34176.02033393.jpg', 'other', 31, '1978-09-07', NULL),
-(2, '657325873657', 'Barry', 'Blanditiis porro odi', 'Moon', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '658522e45b1da5.69709906', NULL, 'female', 98, '2007-04-08', NULL),
-(3, '123123123123', 'Ok', 'kaayo', 'okkaayo', 'b', 'Joe Villacorta', NULL, NULL, NULL, NULL, '659b582be618c5.24688719', 'okkaayo659b9526ad8685.64739761.jpg', 'male', 2, '2024-01-09', NULL),
-(4, '2351166', 'Lol', 'Lmao', 'XD', 'b', 'Joe Villacorta', NULL, NULL, NULL, NULL, '659b5891cf7ee6.82215892', NULL, 'female', 2, '2024-01-02', NULL),
-(5, '55555555', 'John', 'Doe', 'Cena', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '659e4778dea0a3.19830798', 'Cena659e47b6d725f8.40119921.png', 'male', 21, '2024-01-05', NULL);
+INSERT INTO `students` (`id`, `LRN`, `fname`, `minitial`, `lname`, `section`, `strand`, `adviser`, `grd_lvl`, `token`, `profile`, `gender`, `age`, `birthdate`, `contact_no`) VALUES
+(1, '743827487348', 'Tatum', 'Et est esse provid', 'Cleveland', 'A', '', 'Nick Clarito', 0, '658522e4525641.10604769', 'Cleveland659ba655d34176.02033393.jpg', 'other', 31, '1978-09-07', NULL),
+(2, '657325873657', 'Barry', 'Blanditiis porro odi', 'Moon', 'A', '', 'Nick Clarito', 0, '658522e45b1da5.69709906', NULL, 'female', 98, '2007-04-08', NULL),
+(3, '123123123123', 'Ok', 'kaayo', 'okkaayo', 'b', '', 'Joe Villacorta', 0, '659b582be618c5.24688719', 'okkaayo659b9526ad8685.64739761.jpg', 'male', 2, '2024-01-09', NULL),
+(4, '2351166', 'Lol', 'Lmao', 'XD', 'b', '', 'Joe Villacorta', 0, '659b5891cf7ee6.82215892', NULL, 'female', 2, '2024-01-02', NULL),
+(5, '55555555', 'John', 'Doe', 'Cena', 'A', '', 'Nick Clarito', 0, '659e4778dea0a3.19830798', 'Cena659e47b6d725f8.40119921.png', 'male', 21, '2024-01-05', NULL),
+(6, '123123123', 'Kinshen', 'N.', 'Bahian', 'a', '', 'Jefel Villacorta', 0, '65b89d0b1e0006.41329003', 'Bahian65b89e464b8ba1.22368553.jpg', 'male', 17, '2024-01-08', NULL),
+(7, '12345656645', 'Kinshen', 'Nob', 'Bahian', 'a', '', 'kinshen bahian', 0, '65ccb40c825051.80720136', 'Bahian65ccbcb3833de5.25033430.jpg', 'male', -17, '2006-07-21', NULL),
+(8, '12345656645', 'Kinshen', 'Nob', 'Bahian', 'a', '', 'kinshen bahian', 0, '65ccb47277bfa1.58823222', NULL, 'male', -17, '2006-07-21', NULL),
+(9, '123121333131', 'Nicklaus', 'Barbon', 'Macarampat', 'a', '', 'kinshen bahian', 0, '65ccb472a9b2e7.82691087', 'Macarampat65cd7106c747f4.94891234.jpg', 'male', -17, '2019-07-20', NULL),
+(10, '', 'asd', 'asd', 'asd', 'asd', 'ict', 'asd', 0, NULL, 'asd65d1bd29b9c7d4.71944164.jpg', 'male', 23, NULL, NULL),
+(11, '', 'Kinshen', 'Lotlot', 'Bahian', 'a', 'ict', 'Joe Villacorta', 0, NULL, 'Bahian65d1beeb9514f6.70507892.jpg', 'male', 23, NULL, NULL),
+(12, '', 'James', 'Red', 'Smith', 'b', 'ict', 'Joe Villacorta', 0, NULL, 'Smith65d1c0532d6148.67140443.jpg', 'male', 23, NULL, NULL),
+(13, '', 'Taylor', 'Smith', 'Swift', 'b', 'ict', 'Joe Villacorta', 0, '65d1c2743b5537.41634545', 'Swift65d1c2743b5729.44672215.jpg', 'female', 23, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,7 +122,8 @@ INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `secti
 (68, 'Randy', 'Clarito', 'Randy@gmail.com', '123', 'humss', 'f', 12, '', '', 'efa06fde913a37d56de44784b5e1a9633c98c902'),
 (70, 'Joe', 'Villacorta', 'Joe@gmail.com', '123', 'ict', 'b', 12, '', '', 'b2e4ca5aed0ea0985c98737ec73ade217868694c'),
 (71, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123123', 'abm', 'a', 11, '', '', '94e367ec280c5a999036bd9486f6c3e41c0857c9'),
-(72, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123', 'abm', 'a', 11, '', '', 'b81edf563c2c51c839e406cb7d8f38a320cb4b89');
+(72, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123', 'abm', 'a', 11, '', '', 'b81edf563c2c51c839e406cb7d8f38a320cb4b89'),
+(73, 'kinshen', 'bahian', 'kinshen@gmail.com', '123123', 'abm', 'a', 11, '', '', '2967745b38458011778cfcc7ad96df38aa4037d4');
 
 -- --------------------------------------------------------
 
@@ -135,7 +141,9 @@ CREATE TABLE `tokens` (
 --
 
 INSERT INTO `tokens` (`id`, `token`) VALUES
-(93, '808da696b4cabd56be918ce2dab42215f94fc39e');
+(93, '808da696b4cabd56be918ce2dab42215f94fc39e'),
+(99, '57a7b20d615d7c030930482cc7eb9209156bdaed'),
+(100, 'b36811b036803e88833a08031f99fb26e17a1b74');
 
 --
 -- Indexes for dumped tables
@@ -173,25 +181,25 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
