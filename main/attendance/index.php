@@ -42,7 +42,7 @@ if (isset($_SESSION['teacherId'])) {
                     
                 </a>
                 <section class="S-name">
-                    <h3>CDONHS-SHS</h3>
+                    <h3>CAMNHS</h3>
                 </section>
                 <section class="about">
                     <h4>About Us</h4>
@@ -352,7 +352,7 @@ if (isset($_SESSION['teacherId'])) {
         </main>  
         <footer class="footer-lay">
        
-            <h4 class="C-footer">&copy; 2024 ICT 12 A. All rights reserved.</h4>
+            <h4 class="C-footer">&copy; 2024 ICT-CSS 12. All rights reserved.</h4>
         </footer>   
 
 

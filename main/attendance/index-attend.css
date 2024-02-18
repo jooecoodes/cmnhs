@@ -31,7 +31,7 @@
 
 .footer-lay {
     grid-row: 3 / span 1;
-    background-color: #FBB713;
+    background-color: #ff03ea;
     height: 200px;
 }
 
@@ -40,7 +40,7 @@
 .H-top {
     display: grid;
     grid-template-columns: 10% 20% 50% 10% 10%;
-    background-color: #FBB713;
+    background-color: #ff03ea;
     height: 175px;
 }
 .logo {
@@ -81,7 +81,7 @@
     text-align: center;
     font-size: 70px;
     color: #fff;
-    text-shadow: -2px -2px 0 #FBB713, 2px -2px 0 #FBB713, -2px 2px 0 #FBB713, 2px 2px 0 #FBB713;
+    text-shadow: -2px -2px 0 #fb13a2, 2px -2px 0 #fb13a2, -2px 2px 0 #fb13a2, 2px 2px 0 #fb13a2;
 }
 
 .C-footer {

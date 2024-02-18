@@ -35,10 +35,10 @@ if (isset($_GET['user'])) {
             $studLrn = $result['LRN'];
             $studAdviser = $result['adviser'];
             $studFullName = $studFname . "_" . $studLname;
-            $studGradesSem1 = $result['sem1_grades'];
-            $studGradesSem2 = $result['sem2_grades'];
-            $studGradesSem1Array = (empty($studGradesSem1)) ? "no grade" : explode(",", $studGradesSem1);
-            $studGradesSem2Array = (empty($studGradesSem2)) ? "no grade" : explode(",", $studGradesSem2);
+            // $studGradesSem1 = $result['sem1_grades'];
+            // $studGradesSem2 = $result['sem2_grades'];
+            // $studGradesSem1Array = (empty($studGradesSem1)) ? "no grade" : explode(",", $studGradesSem1);
+            // $studGradesSem2Array = (empty($studGradesSem2)) ? "no grade" : explode(",", $studGradesSem2);
             $profilePath = (empty($studPfp)) ? "../../assets/profile/default.png" : "../../assets/profile/$studPfp";
 
             // Define the text to be encoded
