@@ -84,33 +84,7 @@ function generateQR($value, $name){
     // Display the QR code image in the browser
     echo "<img src='../../assets/qr/$testName.png' />";
 }
-function retrieveStudData($conn, $token){
-    $stmt = $conn->prepare("SELECT *
-    FROM abm_students_11
-JOIN abm_students_12 ON abm_students_11.token = abm_students_12.token
-JOIN eim_students_11 ON abm_students_12.token = eim_students_11.token
-JOIN eim_students_12 ON eim_students_11.token = eim_students_12.token
-JOIN gas_students_11 ON eim_students_12.token = gas_students_11.token
-JOIN gas_students_12 ON gas_students_11.token = gas_students_12.token
-JOIN he_students_11 ON gas_students_12.token = he_students_11.token
-JOIN he_students_12 ON he_students_11.token = he_students_12.token
-JOIN humss_students_11 ON he_students_12.token = humss_students_11.token
-JOIN humss_students_12 ON humss_students_11.token = humss_students_12.token
-JOIN ict_students_11 ON humss_students_12.token = ict_students_11.token
-JOIN ict_students_12 ON ict_students_11.token = ict_students_12.token
-JOIN stem_students_11 ON ict_students_12.token = stem_students_11.token
-JOIN stem_students_12 ON stem_students_11.token = stem_students_12.token
-WHERE abm_students_11.token = :token
-    ");
-    $stmt->execute([":token"=>$token]);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if ($stmt->rowCount() > 0) {
-       return $result;
-    }
-    else{
-        echo 'Student not found';
-    }
-}
+
 function insertStudPfp($conn, $data){
     $stmt = $conn->prepare("UPDATE teachers(fname, lname, email, pwd, strand, section, grd_lvl, token) VALUES(:fname, :lname, :email,:pwd,:strand,:section,:grade,:token)");
     if ($stmt->execute($data)) {
