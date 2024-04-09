@@ -17,6 +17,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 }
 function dataValidation($conn, $data)
 {
+
     $stmt = $conn->prepare("SELECT * FROM teachers WHERE email = :email AND pwd = :pwd ");
     $stmt->execute($data);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -36,6 +37,6 @@ function dataValidation($conn, $data)
             echo "User login successfully";
         }
     } else {
-        echo "User doesn't exist";
+        echo "Invalid email or password";
     }
 }

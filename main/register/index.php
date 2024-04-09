@@ -1,3 +1,16 @@
+<?php 
+
+    if(!isset($_GET['strand'], $_GET['grade'])) {
+        header("Location: strand-select.php");
+    } else {
+
+        echo $_GET['strand'];
+        echo $_GET['grade'];
+        $strand = htmlspecialchars($_GET['strand']);
+        $grade = htmlspecialchars($_GET['grade']);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,29 +32,103 @@
         <label for="passwordField">Password</label>
         <input type="password" name="password" id="passwordField" placeholder="Enter Password">
         <input type="password" name="conf-pwd" id="confPwdField" placeholder="Confirm Password">
-        <label for="strandField">Strand</label>
-        <select name="strand" id="strandField">
-        <option value="abm">ABM</option>
-        <option value="ict">ICT</option>
-        <option value="humss">HUMSS</option>
-        <option value="he">HE</option>
-        <option value="stem">STEM</option>
-        <option value="eim">EIM</option>
-</select>
         <label for="sectionField">section</label>
-        <select name="section" id="sectionField">
-        <option value="a">A</option>
-        <option value="b">B</option>
-        <option value="c">C</option>
-        <option value="d">D</option>
-        <option value="f">F</option>
-</select>
 
-        <label for="grade">Grade Level</label>
-        <select name="grade" id="gradeField">
-        <option value="11">11</option>
-        <option value="12">12</option>
-</select>
+        <?php 
+        if($grade == 11) {
+            switch($strand) {
+                case "abm";
+                    ?>
+                        <!-- abm  -->
+                        <select name="section" id="sectionField">
+                            <option value="a">ABM-11-example</option>
+                        </select>
+
+                    <?php
+                break;
+                case "ict";
+                    ?>
+                        <!-- ict  -->
+                        <select name="section" id="sectionField">
+                            <option value="a">ICT-11-example</option>
+                        </select>
+                    <?php 
+                break;
+                case "humss";
+                ?>
+                    <!-- humss  -->
+                    <select name="section" id="sectionField">
+                        <option value="a">HUMSS-11-example</option>
+                    </select>
+                <?php 
+                break;
+                case "cookery";
+                ?>
+                    <!-- cookery  -->
+                    <select name="section" id="sectionField">
+                        <option value="a">COOKERY-11-example</option>
+                    </select>
+                <?php 
+                break;
+                case "eim";
+                ?>
+                    <!-- eim  -->
+                    <select name="section" id="sectionField">
+                        <option value="a">EIM-11-example</option>
+                    </select>
+                <?php 
+            break;
+                  
+
+            }
+        } else if ($grade == 12) {
+            switch($strand) {
+                case "abm";
+                ?>
+                    <!-- abm  -->
+                    <select name="section" id="sectionField">
+                        <option value="a">ABM-12-example</option>
+                    </select>
+
+                <?php
+            break;
+            case "ict";
+                ?>
+                    <!-- ict  -->
+                    <select name="section" id="sectionField">
+                        <option value="a">ICT-12-example</option>
+                    </select>
+                <?php 
+            break;
+            case "humss";
+            ?>
+                <!-- humss  -->
+                <select name="section" id="sectionField">
+                    <option value="a">HUMSS-12-example</option>
+                </select>
+            <?php 
+            break;
+            case "cookery";
+            ?>
+                <!-- cookery  -->
+                <select name="section" id="sectionField">
+                    <option value="a">COOKERY-12-example</option>
+                </select>
+            <?php 
+            break;
+            case "eim";
+            ?>
+                <!-- eim  -->
+                <select name="section" id="sectionField">
+                    <option value="a">EIM-11-example</option>
+                </select>
+            <?php 
+        break;
+            }
+        }  
+
+        
+        ?>
 
         <label for="tokenField">Token</label>
         <input type="text" name="token" id="tokenField" placeholder="Enter Token">
@@ -56,3 +143,8 @@
 
 </body>
 </html>
+
+<?php 
+    }
+
+?>
