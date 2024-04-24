@@ -29,9 +29,7 @@ if (isset($_SESSION['teacherId'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Attendance</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
-        <script type="text/javascript" src="instascan.min.js"></script>
-        
+        <script src="instascan.min.js"></script>
         <link rel="stylesheet" href="index-attend.css">
         <script src="attendance.js"></script>
        
@@ -366,7 +364,7 @@ $teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] :
 $teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
  $teacherFullName = $teacherFname . ' ' . $teacherLname;
  echo $teacherFullName;
- echo $_SESSION['test'];
+ echo $_SESSION['test']; 
 
 ob_end_flush(); // Flush output buffer and send to the browser
 ?>

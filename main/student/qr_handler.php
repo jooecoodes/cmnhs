@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Specify the directory to save the uploaded file
         // $studId = $_POST['id'];
         $studLname = $_POST['lname'];
+        $studMname = $_POST['mname'];
         $studFname = $_POST['fname'];
         // $studGradelvl = $_POST['gradeLvl'];
         // $studSection = $_POST['section'];
@@ -61,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     updateInfo($conn, [
         ":studlname"=>$studLname,
         ":studfname"=>$studFname,
+        ":studmname"=>$studMname,
         ":studlrn"=>$studLrn,
         ":studtoken"=>$studToken
     ]);
@@ -104,12 +106,13 @@ function updatePfp($conn, $data){
     }
 }
 function updateInfo($conn, $data){
-    $stmt = $conn->prepare("UPDATE students SET  `lname` = :studlname, `fname` = :studfname, `LRN` = :studlrn WHERE `token`=:studtoken");
+    $stmt = $conn->prepare("UPDATE students SET  `lname` = :studlname, `fname` = :studfname, `minitial` = :studmname, `LRN` = :studlrn WHERE `token`=:studtoken");
 
     // Debugging output
     echo "Token: " . $data[':studtoken'] . "<br>";
     echo "Last Name: " . $data[':studlname'] . "<br>";
     echo "First Name: " . $data[':studfname'] . "<br>";
+    echo "Middle Name: " . $data[':studmname'] . "<br>";
     echo "LRN: " . $data[':studlrn'] . "<br>";
     
             $stmt->execute($data);

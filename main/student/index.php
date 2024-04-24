@@ -25,6 +25,7 @@ if (isset($_GET['user'])) {
         if ($stmt->rowCount() > 0) {
             //setup sessions
             $studFname = $result['fname'];
+            $studMname = $result['minitial'];
             $studLname = $result['lname'];
             $studId = $result['id'];
             $studSection = $result['section'];
@@ -193,11 +194,13 @@ if (isset($_GET['user'])) {
                             <label for="lrn">LRN:</label>
                             <input type="text" id="lrn" name="LRN" value="<?php echo $studLrn ?>"><br>
                             <label for="fname">First Name:</label>
-                            <input type="text" id="fname" name="fname" value="<?php echo $studFname ?>"><br>
+                            <input type="text" id="fname" name="fname" value="<?php echo $studFname ?> "><br>
+                            <label for="fname">Middle Name:</label>
+                            <input type="text" id="fname" name="mname" value="<?php echo $studMname ?> "><br>
                             <label for="lname">Last Name:</label>
                             <input type="text" id="lname" name="lname" value="<?php echo $studLname ?>"><br>
             
-                            <input type="submit" name="submit" value="Submit">
+                            <input type="submit" name="submit" value="Update">
                         </div>
                             </form>
                     </div>

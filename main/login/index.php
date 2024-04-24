@@ -26,7 +26,7 @@
         <?php
 
     } else {
-        echo "You're already login";
+        header("Location: ../");
     }
 
 ?>
