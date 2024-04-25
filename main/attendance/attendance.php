@@ -14,7 +14,8 @@ $teacherFullName = $teacherFname . ' ' . $teacherLname;
 $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
 $studToken = (isset($_POST["token"])) ? htmlspecialchars($_POST["token"]) : "token not set";
 
-if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'], $_POST['section'], $_POST['adviser'], $_POST['date'])) {
+// print_r($_POST);
+if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'], $_POST['section'], $_POST['adviser'], $_POST['date'], $_POST['gender'])) {
 
     $studFname = $_POST['fname'];
     $studLname = $_POST['lname'];
@@ -24,6 +25,7 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
     $_SESSION['test'] = $studAdviser;
     $studStrand = $_POST['strand'];
     $studDate = $_POST['date'];
+    $studGender = $_POST['gender'];
 
 
     // checks if teacher has the same name as student adviser
@@ -49,7 +51,7 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
             ]);
 
             if ($stmtDelete->rowCount() > 0) {
-                $stmt = $conn->prepare("INSERT INTO attendance(fname, lname, grd_lvl, strand, section, adviser, `date`) VALUES(:fname, :lname, :grd_lvl, :strand, :section, :adviser, :date_time)");
+                $stmt = $conn->prepare("INSERT INTO attendance(fname, lname, grd_lvl, strand, section, gender, adviser, `date`) VALUES(:fname, :lname, :grd_lvl, :strand, :section, :gender, :adviser, :date_time)");
 
                 $stmt->execute([
 
@@ -58,6 +60,7 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
                     ":grd_lvl" => $studGradelvl,
                     ":strand" => $studStrand,
                     ":section" => $studSection,
+                    ":gender"=> $studGender,
                     ":adviser" => $studAdviser,
                     ":date_time" => $studDate
 
@@ -76,7 +79,7 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
         } else {
              
             // insert if it doesn't exist anyway
-            $stmt = $conn->prepare("INSERT INTO attendance(fname, lname, grd_lvl, strand, section, adviser, `date`) VALUES(:fname, :lname, :grd_lvl, :strand, :section, :adviser, :date_time)");
+            $stmt = $conn->prepare("INSERT INTO attendance(fname, lname, grd_lvl, strand, section, gender, adviser, `date`) VALUES(:fname, :lname, :grd_lvl, :strand, :section, :gender, :adviser, :date_time)");
 
             $stmt->execute([
 
@@ -86,7 +89,8 @@ if (isset($_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
                 ":strand" => $studStrand,
                 ":section" => $studSection,
                 ":adviser" => $studAdviser,
-                ":date_time" => $studDate
+                ":date_time" => $studDate,
+                ":gender"=> $studGender
 
             ]);
             if ($stmt->rowCount() > 0) {

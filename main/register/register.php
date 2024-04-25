@@ -1,6 +1,7 @@
 <?php
 require_once("../db_conn.php");
 
+// print_r($_POST);
 if (isset($_POST['fname']) && isset($_POST['lname']) &&isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confpwd']) && isset($_POST['strand']) && isset($_POST['section']) && isset($_POST['grade']) && isset($_POST['token'])) {
     $fname = (isset($_POST['fname'])) ? htmlspecialchars($_POST['fname']) : "fname not set";
     $lname = (isset($_POST['lname'])) ? htmlspecialchars($_POST['lname']) : "lname not set";

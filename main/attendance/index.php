@@ -28,7 +28,8 @@ if (isset($_SESSION['teacherId'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Attendance</title>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="jquery.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
         <script src="instascan.min.js"></script>
         <link rel="stylesheet" href="index-attend.css">
         <script src="attendance.js"></script>
@@ -159,10 +160,12 @@ if (isset($_SESSION['teacherId'])) {
                 <table id="studTable" class="studdd">
                     <thead id="studTableHead">
                         <tr>
+                            <th>ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Gender</th>
                             <th>Grade Level</th>
+                            <th>Strand</th>
                             <th>Section</th>
                             <th>Adviser</th>
                             <th>Date</th>
@@ -237,6 +240,9 @@ if (isset($_SESSION['teacherId'])) {
                                         <p><?= $resultFromSearch['grd_lvl'] ?></p>
                                     </td>
                                     <td>
+                                        <p><?= $resultFromSearch['strand'] ?></p>
+                                    </td>
+                                    <td>
                                         <p><?= $resultFromSearch['section'] ?></p>
                                     </td>
 
@@ -299,6 +305,9 @@ if (isset($_SESSION['teacherId'])) {
                                         </td>
                                         <td>
                                             <p><?= $result['grd_lvl'] ?></p>
+                                        </td>
+                                        <td>
+                                            <p><?= $result['strand']?></p>
                                         </td>
                                         <td>
                                             <p><?= $result['section'] ?></p>

@@ -18,18 +18,12 @@
         <input type="text" name="adviser" placeholder="Adviser" required>
         <input type="text" name="section" placeholder="Section" required>
         
-        <select name="strand" required>
-            <option value="ict">ICT</option>
-            <option value="abm">ABM</option>
-            <option value="humss">HUMSS</option>
-            <option value="eim">EIM</option>
-            <option value="he">HE</option>
-        </select>
+        <input type="text" name="strand" placeholder="Strand" required>
         <select name="gender" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
-        <input type="file" name="stud-pfp" required>
+        <input type="file" name="stud-pfp" required >
         <input type="hidden" name="form-submitted-student" value="1">
         <input type="submit">
     </form>

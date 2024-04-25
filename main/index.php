@@ -1,6 +1,11 @@
 <?php 
     require_once("db_conn.php");
     session_start(); 
+    if(!isset($_SESSION['teacherId'])) {
+        header("Location: ./login/");
+    } else {
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +16,17 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+        
+        <p>Welcome, <?= $_SESSION['teacherFname']?></p>
+
         <div>
             <a href="./attendance">Attendance</a>
             <a href="./teacher">Students</a>
         </div>
 </body>
 </html>
+
+<?php 
+    }
+
+?>

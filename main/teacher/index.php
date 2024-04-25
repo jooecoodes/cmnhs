@@ -27,6 +27,6 @@ if (isset($_SESSION['teacherId'])){
 
 <?php
 }else{
-    echo "Your not log in";
+    header("Location: ../login/");
 }
 ?>

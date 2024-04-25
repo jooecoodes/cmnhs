@@ -23,7 +23,7 @@ $(document).ready(function () {
         $("#fnameField").val(parseJson.fname);
         $("#lnameField").val(parseJson.lname);
         $("#grd_lvlField").val(parseJson.grd_lvl);
-        $("#strandField").val(parseJson.strand);
+        $("#strandField").val(parseJson.strand);  
         $("#sectionField").val(parseJson.section);
         $("#adviserField").val(parseJson.adviser);
         $("#genderField").val(parseJson.gender);
@@ -44,6 +44,7 @@ $(document).ready(function () {
     let strand = $("#strandField").val();
     let section = $("#sectionField").val();
     let adviser = $("#adviserField").val();
+    let gender = $("#genderField").val();
     let date = new Date();
 
     // Get the year, month, day, hour, minute and second
@@ -75,6 +76,7 @@ $(document).ready(function () {
         section: section,
         adviser: adviser,
         date: dateString,
+        gender: gender,
       },
       success: function (response) {
         alert(response);

@@ -1,22 +1,26 @@
 <?php 
     require_once("../db_conn.php");
+    print_r($_POST);
     if(isset($_POST['form-submitted-student'])) {
+        echo "I went in";
         $studFname = htmlspecialchars($_POST['fname']);
         $studMname = htmlspecialchars($_POST['midname']);
         $studLname = htmlspecialchars($_POST['lname']);
         $studLRN = htmlspecialchars($_POST['lrn']);
         $studSection = htmlspecialchars(strtolower($_POST['section']));
-        $studStrand = htmlspecialchars($_POST['strand']);
+        $studStrand = htmlspecialchars(strtolower($_POST['strand']));
         $studAdviser = htmlspecialchars($_POST['adviser']);
-        $studGender = htmlspecialchars($_POST['gender']);
+        $studGender = isset($_POST['gender']) ? htmlspecialchars($_POST['gender']) : "gender is not filled";
         $studAge = htmlspecialchars($_POST['age']);
         $studGrdLvl = htmlspecialchars($_POST['grd_lvl']);
         $studToken = uniqid("",true);
         if(userExist($conn, $studFname, $studMname, $studLname)) {
             echo "Student already exists";
         } else {
+            echo "I went in 2";
             $uploadDirectory = "../../assets/profile/";
             if(isset($_FILES['stud-pfp'])){
+                echo "I went in 3";
                 $studPfp = $_FILES['stud-pfp'];
             // Get the temporary file name
             $tmpFileName = $studPfp["tmp_name"];
@@ -25,11 +29,13 @@
     
             $allowed_exs = array('jpg', 'jpeg', 'png');
             if (in_array($img_ex_to_lc, $allowed_exs)) {
+                echo "I went in 4";
                 $new_img_name = uniqid($studLname, true) . '.' . $img_ex_to_lc;
                 $img_upload_path = $uploadDirectory . $new_img_name;
     
                 if (move_uploaded_file($tmpFileName, $img_upload_path)) {
                     echo "File uploaded successfully. Stored at: $new_img_name";
+
                 } else {
                     echo "Error uploading file.";
                 }
@@ -38,6 +44,8 @@
     
     
                 
+            } else {
+                echo "File not supported";
             }
         }else{
             echo "error".$_FILES['pfp']['error'];
