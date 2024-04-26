@@ -1,10 +1,11 @@
 <?php
 print_r($_POST);
 
-if (isset($_POST['download-qr'])) {
-    $studQrName = (isset($_POST['student-qr-name'])) ? $_POST['student-qr-name'] : "failed to set student qr name";
+if (isset($_GET['studfullname'])) {
+    $studFullName = $_GET['studfullname'];
+    
 
-    $filePath = "../../assets/qr/$studQrName" . ".png";
+    $filePath = "../../assets/qr/$studFullName" . ".png";
     if (file_exists($filePath)) {
 
         header('Content-Type: application/octet-stream');

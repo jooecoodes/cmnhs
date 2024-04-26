@@ -183,6 +183,8 @@ if (isset($_GET['user'])) {
                             <input type="file" id="pfp" name="pfp"><br>
                             <img src="<?php echo $profilePath ?>" alt=""><br>
                             <img src="<?php echo "../../assets/qr/$studFullName.png" ?>" alt=""><br>
+                            <a href="download_qr.php?studfullname=<?= $studFullName ?>">Download QR Code</a>
+
                             <label for="gradeLvl">Grade level:<?php echo $studGrdlvl ?></label><br>
             
                             <label for="section">Section:<?php echo $studSection ?></label><br>
