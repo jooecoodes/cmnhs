@@ -65,8 +65,8 @@ $(document).ready(function() {
                 <td>${value['lname']}</td>
                 <td>${value['section']}</td>
                 <td>${value['adviser']}</td>
-                <td><button class="editBttn" onclick="buttonClicked(this)" data-token="${value['token']}">Edit</button></td>
-                <td><button class="deleteBttn" onclick="deleteClicked(this)" data-token="${value['token']}">Delete</button></td>
+                <td><button class="editBttn btn btn-primary" onclick="buttonClicked(this)" data-token="${value['token']}">Edit</button></td>
+                <td><button class="deleteBttn btn btn-danger" onclick="deleteClicked(this)" data-token="${value['token']}">Delete</button></td>
             </tr>
         `;
         studTbody.append(html);

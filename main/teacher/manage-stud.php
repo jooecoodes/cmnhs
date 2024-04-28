@@ -10,12 +10,14 @@
     <script src="jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
     <script src="manage-stud.js"></script>
+    <link rel="stylesheet" href="../bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    <p>Fetch all your students</p>
-    <button id="testBttn">Fetch</button>
-    <table id="studTable">
+    <div class="container p-4">
+    <a href="../" class="btn btn-primary"><-</a>
+    <button id="testBttn" class="btn btn-primary">Fetch</button>
+    <table id="studTable" class="table table-striped mt-3">
         <thead id="studTableHead">
             <tr>
                 <th>ID</th>
@@ -30,5 +32,8 @@
             
         </tbody>
     </table>
+
+    </div>
+    <script src="../bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,5 +4,6 @@
         session_destroy();
         unset($_SESSION['teacherId']);
         echo "Successfully logged out";
+        header("Location: ./login/");
     }
 ?>

@@ -16,9 +16,9 @@ if (isset($_SESSION['teacherId'])) {
     ]);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if ($stmt->rowCount() > 0) {
-        echo "Successfully selected all attendance";
+        
     } else {
-        echo "No result";
+
     }
 
 ?>
@@ -31,13 +31,14 @@ if (isset($_SESSION['teacherId'])) {
         <script src="jquery.min.js"></script>
         <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
         <script src="instascan.min.js"></script>
-        <link rel="stylesheet" href="index-attend.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../bootstrap.min.css">
         <script src="attendance.js"></script>
        
     </head>
     <body class="body-lay">
   
-        <header class="header-lay">
+        <!-- <header class="header-lay">
             <section class="H-top">
                 <a href="../homepage/index.php" class="logo">
                     
@@ -58,10 +59,15 @@ if (isset($_SESSION['teacherId'])) {
                 <h2 class="attend">ATTENDANCE PAGE</h2>
             </section>
         </header>
-    
+     -->
+
         <main class="main-lay">
-          
-            <section class="form-container">
+            <div class="container mt-3">
+    <a href="../" class="btn btn-primary mt-3 mb-3 back"><-</a>
+
+            </div>
+            <section class="container form-container d-flex justify-content-evenly align-items-start h-15">
+
                 <form id="attendanceForm">
                     <img src="" alt="" width="400px" height="400px" class="prof" id="pfpField">
                     <br><br>
@@ -70,16 +76,16 @@ if (isset($_SESSION['teacherId'])) {
                             <section class="form-label">
                                 <label for="fnameField">First name: </label>
                             </section>
-                            <section class="form-input">
-                                <input type="text" name="fname" class="underline-input" id="fnameField">
+                            <section class="form-input form-group">
+                                <input type="text" name="fname" class="underline-input form-control w-100" id="fnameField" >
                             </section>
                         </section>
                         <section class="form-row">
                             <section class="form-label">
                                 <label for="lnameField">Last name: </label>
                             </section>
-                            <section class="form-input">
-                                <input type="text" name="Lname" class="underline-input" id="lnameField">
+                            <section class="form-input form-group">
+                                <input type="text" name="Lname" class="underline-input form-control w-100" id="lnameField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -87,7 +93,7 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="grd_lvlField">Grade level: </label>
                             </section>
                             <section class="form-input">
-                                <input type="text" name="grd_lvl" class="underline-input" id="grd_lvlField">
+                                <input type="text" name="grd_lvl" class="underline-input form-control w-100" id="grd_lvlField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -95,7 +101,7 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="strandField">Strand: </label>
                             </section>
                             <section class="form-input">
-                                <input type="text" name="strand" class="underline-input" id="strandField">
+                                <input type="text" name="strand" class="underline-input form-control w-100" id="strandField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -103,7 +109,7 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="strandField">Section: </label>
                             </section>
                             <section class="sectionField">
-                                <input type="text" name="section" class="underline-input" id="sectionField">
+                                <input type="text" name="section" class="underline-input form-control w-100" id="sectionField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -111,7 +117,7 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="adviser">Adviser: </label>
                             </section>
                             <section class="adviserField">
-                                <input type="text" name="adviser" class="underline-input" id="adviserField">
+                                <input type="text" name="adviser" class="underline-input form-control w-100" id="adviserField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -119,24 +125,25 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="genderField">Gender: </label>
                             </section>
                             <section class="genderField">
-                                <input type="text" name="gender" class="underline-input" id="genderField">
+                                <input type="text" name="gender" class="underline-input form-control w-100" id="genderField">
                             </section>
                         </section>
-                        <input type="submit" value="record">
+                        <input type="submit" value="Record" class="btn btn-primary mt-3 mb-3">
                     </section>
+                  
                 </form>
+                <video id="preview"></video>
             </section>
             <div class="leftside">
                 <!-- Import  -->
-                <video id="preview"></video>
                 <form action="import.php" method="post" enctype="multipart/form-data">
                     <label for="csvFile">Choose a CSV file:</label>
                     <input type="file" name="csvFile" id="csvFile" accept=".csv">
-                    <button type="submit" name="submit">Import</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Import</button>
                     <input type="hidden" name="import-attendance" value="1">
                 </form>
 
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get" class="inputtt">
+                <!-- <form action="" method="get" class="inputtt">
                     <section class="form-row">
                             <section class="form-label">
                                 <label for="searchFnameField">First Name: </label>
@@ -155,9 +162,9 @@ if (isset($_SESSION['teacherId'])) {
                     </section>
                     <button type="submit" name="search">Search</button>
 
-                </form>
+                </form> -->
 
-                <table id="studTable" class="studdd">
+                <table id="studTable" class="studdd table table-striped">
                     <thead id="studTableHead">
                         <tr>
                             <th>ID</th>
@@ -322,7 +329,7 @@ if (isset($_SESSION['teacherId'])) {
                                         <td>
                                         <form action="delete.php" method="post">
                                         <input type="hidden" name="student-attendance-id" value="<?= $result['id'] ?>">
-                                        <input type="submit" value="Delete">
+                                        <input type="submit" value="Delete" class="btn btn-danger">
                                         </td>
                                         
                                     </form>
@@ -339,41 +346,42 @@ if (isset($_SESSION['teacherId'])) {
                 </table>
         
                 <!-- Export  -->
-               
-                <form action="export.php" method="POST">
-                    <input type="hidden" name="export-attendance" value="1">
-                    <input type="submit" value="Export Attendance">
-                </form>
+               <div class="d-flex justify-content-evenly align-items-center">
 
-
-               
-                    <!-- Clear  -->
-                <form action="clear.php" method="post">
-                    <input type="hidden" name="clear-attendance" value="1">
-                    <input type="submit" value="Clear">
-                </form>
+                   <form action="export.php" method="POST">
+                       <input type="hidden" name="export-attendance" value="1">
+                       <input type="submit" value="Export Attendance" class="btn btn-primary">
+                   </form>
+   
+   
+                  
+                       <!-- Clear  -->
+                   <form action="clear.php" method="post">
+                       <input type="hidden" name="clear-attendance" value="1">
+                       <input type="submit" value="Clear" class="btn btn-danger">
+                   </form>
+               </div>
             </div>
        
         </main>  
-        <footer class="footer-lay">
+        <footer class="footer-lay d-flex justify-content-center align-items-center ">
        
             <h4 class="C-footer">&copy; 2024 ICT-CSS 12. All rights reserved.</h4>
         </footer>   
-
-
+                    
+        <script src="../bootstrap.bundle.min.js"></script>
     </body>
 
     </html>
 <?php
 } else {
-    echo "You're not logged in or authorized to access this page";
+    header("Location: ../login/");
 }
 
 $teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] : "teacher Fname not set";
 $teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
  $teacherFullName = $teacherFname . ' ' . $teacherLname;
- echo $teacherFullName;
- echo $_SESSION['test']; 
+//  echo $teacherFullName;
 
 ob_end_flush(); // Flush output buffer and send to the browser
 ?>

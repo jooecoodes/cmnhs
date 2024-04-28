@@ -53,137 +53,28 @@ if (isset($_GET['user'])) {
                         <head>
                             <meta charset="UTF-8">
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Document</title>
-                            <style>
-                                /* Reset some default styles */
-            * {
-   
-            }
+                            <link rel="stylesheet" href="../bootstrap.min.css">
+                            <link rel="stylesheet" href="student-custom.css">
+                            <title>Student - CMNHS</title> 
 
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f2f2f2;
-            }
-
-            .form-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-              position: absolute;
-             left:70px;
-             width:50%;
-             margin-left:-16%;
-
-            }
-
-            .form {
-                max-width: 400px;
-                width: 100%;
-                background-color: #fff;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                padding: 20px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .form-square {
-                margin-bottom: 20px;
-            }
-
-            label {
-                display: block;
-                margin-bottom: 5px;
-            }
-
-            input[type="file"] {
-                margin-bottom: 10px;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
-                margin-bottom: 10px;
-            }
-
-            input[type="text"],
-            input[type="number"] {
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 10px;
-            }
-
-            input[type="submit"] {
-                background-color: #FBB713;
-                color: white;
-                padding: 10px 15px;
-                cursor: pointer;
-                border: none;
-                border-radius: 4px;
-            }
-
-            input[type="submit"]:hover {
-                background-color: #030670;
-            }
-            table {
-                border-collapse: collapse;
-                width: 80%;
-                margin: 20px 0;
-                background-color: #fff;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            thead {
-                background-color: #FBB713;
-                color: white;
-            }
-
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
-            }
-
-            th {
-                padding: 12px;
-            }
-
-            tbody tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            tbody tr:hover {
-                background-color: #ddd;
-            }
-            #sem-table-div {
-                display: flex;
-                flex-direction: column;
-            }
-            .bord{
-                margin-left:30%;
-       margin-top:15%;
-                width:60%;
-
-            }
-            .bord1 {
-                margin-left:30%;
-                width:60%;
-            }
-
-                            </style>
                         </head>
                         <body>
-                        <div class="form-container">
-                            <form enctype="multipart/form-data" action="qr_handler.php" method="POST" class="form">
+                        <div height="100vh" class="container form-container d-flex justify-content-center overflow-auto">
+                            <form enctype="multipart/form-data" action="qr_handler.php" method="POST" class="form bg-white p-4 rounded">
                             <div class="form-square">
                             <input type="hidden" name="token" value="<?php echo $studToken ?>">
-                            <label for="pfp">Profile:</label>
-                            <input type="file" id="pfp" name="pfp"><br>
-                            <img src="<?php echo $profilePath ?>" alt=""><br>
-                            <img src="<?php echo "../../assets/qr/$studFullName.png" ?>" alt=""><br>
-                            <a href="download_qr.php?studfullname=<?= $studFullName ?>">Download QR Code</a>
+                            <div class="d-flex justify-content-center align-items-center flex-column">
+
+                            <label class="form-label"for="pfp">Profile:</label>
+                            
+                            <input class="form-control" type="file" id="pfp" name="pfp"><br>
+                            <img width="300px" height="300px"src="<?php echo $profilePath ?>" alt="">
+                        </div>
+                            <div class="d-flex justify-content-center align-items-center flex-column">
+
+                                <img src="<?php echo "../../assets/qr/$studFullName.png" ?>" alt="" width="50%" height="50%"><br>
+                                <a href="download_qr.php?studfullname=<?= $studFullName ?>" class="btn btn-primary mt-3 mb-3">Download QR Code</a>
+                            </div>
 
                             <label for="gradeLvl">Grade level:<?php echo $studGrdlvl ?></label><br>
             
@@ -194,15 +85,17 @@ if (isset($_GET['user'])) {
                             <label for="adviser">Adviser:<?php echo $studAdviser ?></label><br>
                             <label for="id">ID:<?php echo $studId ?></label><br>
                             <label for="lrn">LRN:</label>
-                            <input type="text" id="lrn" name="LRN" value="<?php echo $studLrn ?>"><br>
+                            <input type="text" id="lrn" name="LRN" value="<?php echo $studLrn ?>" class="form-control w-100"><br>
                             <label for="fname">First Name:</label>
-                            <input type="text" id="fname" name="fname" value="<?php echo $studFname ?> "><br>
+                            <input type="text" id="fname" name="fname" value="<?php echo $studFname ?> " class="form-control w-100"><br>
                             <label for="fname">Middle Name:</label>
-                            <input type="text" id="fname" name="mname" value="<?php echo $studMname ?> "><br>
+                            <input type="text" id="fname" name="mname" value="<?php echo $studMname ?> " class="form-control w-100" ><br>
                             <label for="lname">Last Name:</label>
-                            <input type="text" id="lname" name="lname" value="<?php echo $studLname ?>"><br>
-            
-                            <input type="submit" name="submit" value="Update">
+                            <input type="text" id="lname" name="lname" value="<?php echo $studLname ?>" class="form-control w-100"><br>
+                            <div class="d-flex justify-content-center mt-3 mb-3">
+                                
+                                <input type="submit" name="submit" value="Update" class="btn btn-primary">
+                            </div>
                         </div>
                             </form>
                     </div>

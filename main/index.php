@@ -13,16 +13,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-        
-        <p>Welcome, <?= $_SESSION['teacherFname']?></p>
+    <div class="container min-vw-100 d-flex min-vh-100 justify-content-center align-items-center">
 
-        <div>
-            <a href="./attendance">Attendance</a>
-            <a href="./teacher">Students</a>
+        <div class="p-4 rounded bg-white">
+
+            <p>Welcome, <?= $_SESSION['teacherFname']?></p>
+    
+            <div>
+                <button onclick="window.location.href='./attendance'" class="btn btn-primary">Attendance</button>
+                <a href="./teacher/manage-stud.php" class="btn btn-primary  ">Students</a>
+                <a href="logout.php" class="btn btn-danger">Log out</a>
+            </div>
         </div>
+    </div>
 </body>
 </html>
 

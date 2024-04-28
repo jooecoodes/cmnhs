@@ -15,13 +15,16 @@ if (isset($_SESSION['teacherId'])){
     <script src="teacher.js"></script>
 
     <link rel="stylesheet" href="Teacher.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+
+        <a href="manage-stud.php">Manage Students</a>
+    </div>
 
 
-    <a href="manage-stud.php">Manage Students</a>
-   <button id="logoutBttn">log out</button>
 </body>
 </html>
 
