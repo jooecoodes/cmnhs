@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 11:21 AM
+-- Generation Time: Apr 28, 2024 at 12:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,9 @@ INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`
 (2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '', '2023-12-18 14:45:23'),
 (18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30'),
 (20, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-30 11:54:23'),
-(42, 'Taylor', 'Swift', '12', 'ict', 'b', 'Joe Villacorta', '', '2024-02-18 17:02:24');
+(42, 'Taylor', 'Swift', '12', 'ict', 'b', 'Joe Villacorta', '', '2024-02-18 17:02:24'),
+(81, 'James', 'Montenegro', '12', 'STEM', 'b', 'Hananiah Maguinda', 'male', '2024-04-25 22:10:58'),
+(82, 'Kinshen', 'Bahian', '11', 'abm', 'a', 'Jefel Villacorta', 'male', '2024-04-28 17:24:06');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,16 @@ INSERT INTO `students` (`id`, `LRN`, `fname`, `minitial`, `lname`, `section`, `s
 (10, '', 'asd', 'asd', 'asd', 'asd', 'ict', 'asd', 0, NULL, 'asd65d1bd29b9c7d4.71944164.jpg', 'male', 23, NULL, NULL),
 (11, '', 'Kinshen', 'Lotlot', 'Bahian', 'a', 'ict', 'Joe Villacorta', 0, NULL, 'Bahian65d1beeb9514f6.70507892.jpg', 'male', 23, NULL, NULL),
 (12, '', 'James', 'Red', 'Smith', 'b', 'ict', 'Joe Villacorta', 0, NULL, 'Smith65d1c0532d6148.67140443.jpg', 'male', 23, NULL, NULL),
-(13, '', 'Taylor', 'Smith', 'Swift', 'b', 'ict', 'Joe Villacorta', 0, '65d1c2743b5537.41634545', 'Swift65d1c2743b5729.44672215.jpg', 'female', 23, NULL, NULL);
+(13, '', 'Taylor', 'Smith', 'Swift', 'b', 'ict', 'Joe Villacorta', 0, '65d1c2743b5537.41634545', 'Swift65d1c2743b5729.44672215.jpg', 'female', 23, NULL, NULL),
+(14, '', 'Kinshen', 'Kokoy', 'Bahian', 'a', 'abm', 'Tristan Babaylan ', 0, '65d1dc4325e489.58721754', 'Bahian65d1dc4325e736.52112353.jpg', 'male', 12, NULL, NULL),
+(15, '', 'Lourvien', 'Clacla', 'Odchigue', 'a', 'abm', 'Tristan Babaylan', 0, '65d1dd8587f349.38415260', 'Odchigue65d1dd8587f545.12282869.jpg', 'male', 13, NULL, NULL),
+(16, '', 'Nicklaus', 'Botchoy', 'Macarampat', 'a', 'abm', 'Tristan Babaylan', 11, '65d1e097a2d511.43124649', 'Macarampat65d1e097a2d8f5.14359537.jpg', 'male', 14, NULL, NULL),
+(17, '', 'Orlando', 'Jumper', 'Limpot', 'b', 'ict', 'Kelvin Giron', 12, '65d1e50258bc77.28018670', 'Limpot65d1e8e2d85988.28000548.jpg', 'female', 13, NULL, NULL),
+(18, '', 'Annie ', 'Nain', 'Lumacang', 'b', 'ict', 'Kelvin Giron', 12, '65d1e6666d7c87.85858225', 'Lumacang65d1e7fe720c57.28539520.jpg', 'female', 17, NULL, NULL),
+(19, '', 'John', 'Olivas', 'Doe', 'love', 'ict', 'Jefel Vilacorta', 12, '6627898cbef5a5.00121682', 'Doe6627898cbefbb9.99246658.jpg', 'male', 19, NULL, NULL),
+(21, '127964110312', 'Remusa', 'Rose', 'Gilva', 'a', 'ict', 'Jefel Villacorta', 12, '66278e5bb20f00.95083232', 'Gilva66278e5bb210b0.38864910.png', 'female', 18, NULL, NULL),
+(23, '12312837813', 'Jefel ', 'Valenzuela ', 'Vilacorta', 'b', 'stem', 'Hananiah Maguinda', 12, '662a42a1b1cee7.30870254', 'Vilacorta662e1393a34a34.10260719.jpg', 'male', 19, NULL, NULL),
+(25, '12312837813', 'James', 'Chaves', 'Montenegro', 'b', 'stem', 'Hananiah Maguinda', 12, '662a5a21778418.37420752', 'Montenegro662a5a2177b123.87424474.jpg', 'male', 19, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,7 +117,7 @@ CREATE TABLE `teachers` (
   `email` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL,
   `strand` varchar(255) NOT NULL,
-  `section` char(2) NOT NULL,
+  `section` varchar(2) NOT NULL,
   `grd_lvl` int(12) NOT NULL,
   `sem1_subjects` varchar(255) NOT NULL,
   `sem2_subjects` varchar(255) NOT NULL,
@@ -124,7 +135,11 @@ INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `secti
 (70, 'Joe', 'Villacorta', 'Joe@gmail.com', '123', 'ict', 'b', 12, '', '', 'b2e4ca5aed0ea0985c98737ec73ade217868694c'),
 (71, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123123', 'abm', 'a', 11, '', '', '94e367ec280c5a999036bd9486f6c3e41c0857c9'),
 (72, 'Jefel', 'Villacorta', 'jefeljoevillacorta@gmail.com', 'jefel123', 'abm', 'a', 11, '', '', 'b81edf563c2c51c839e406cb7d8f38a320cb4b89'),
-(73, 'kinshen', 'bahian', 'kinshen@gmail.com', '123123', 'abm', 'a', 11, '', '', '2967745b38458011778cfcc7ad96df38aa4037d4');
+(73, 'kinshen', 'bahian', 'kinshen@gmail.com', '123123', 'abm', 'a', 11, '', '', '2967745b38458011778cfcc7ad96df38aa4037d4'),
+(74, 'Tristan', 'Babaylan', 'tristanbabaylan@gmail.com', '123123', 'abm', 'a', 11, '', '', '687cbdb6276963361e77d0140c4c5afbf2423635'),
+(75, 'Kelvin', 'Giron', 'KelvinGiron@gmail.com', '123123', 'ict', 'b', 12, '', '', '43941e59879f21a443df8cd7538007703492ab47'),
+(76, 'asdasd', 'sdasd', 'asd@gmail.com', '123123', 'ICT', 'Lo', 11, '', '', '1d43578d85fc106323564937995755289712a285'),
+(77, 'Hananiah', 'Maguinda', 'hananiah@gmail.com', 'hananiah123', 'STEM', 'B', 12, '', '', 'b36811b036803e88833a08031f99fb26e17a1b74');
 
 -- --------------------------------------------------------
 
@@ -143,8 +158,7 @@ CREATE TABLE `tokens` (
 
 INSERT INTO `tokens` (`id`, `token`) VALUES
 (93, '808da696b4cabd56be918ce2dab42215f94fc39e'),
-(99, '57a7b20d615d7c030930482cc7eb9209156bdaed'),
-(100, 'b36811b036803e88833a08031f99fb26e17a1b74');
+(99, '57a7b20d615d7c030930482cc7eb9209156bdaed');
 
 --
 -- Indexes for dumped tables
@@ -182,25 +196,25 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
