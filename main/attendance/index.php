@@ -344,7 +344,7 @@ if (isset($_SESSION['teacherId'])) {
                     }
 
                     ?>
-                </table>
+                </table> 
             </div>
         
                 <!-- Export  -->
@@ -368,7 +368,7 @@ if (isset($_SESSION['teacherId'])) {
         </main>  
         <footer class="footer-lay d-flex justify-content-center align-items-center ">
        
-            <h4 class="C-footer">&copy; 2024 ICT-A 12. All rights reserved.</h4>
+            <h4 class="C-footer">&copy; 2024 ICT-A 12, All rights reserved.</h4>
         </footer>   
                     
         <script src="../bootstrap.bundle.min.js"></script>
