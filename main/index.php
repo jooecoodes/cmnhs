@@ -24,8 +24,8 @@
             <p>Welcome, <?= $_SESSION['teacherFname']?></p>
     
             <div>
-                <button onclick="window.location.href='./attendance'" class="btn btn-primary">Attendance</button>
-                <a href="./teacher/manage-stud.php" class="btn btn-primary  ">Students</a>
+                <button onclick="window.location.href='./attendance'" class="btn btn-primary">Scan QR</button>
+                <a href="./teacher/manage-stud.php" class="btn btn-primary  ">List of Students</a>
                 <a href="logout.php" class="btn btn-danger">Log out</a>
             </div>
         </div>

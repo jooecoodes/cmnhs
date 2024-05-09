@@ -136,12 +136,12 @@ if (isset($_SESSION['teacherId'])) {
             </section>
             <div class="leftside">
                 <!-- Import  -->
-                <form action="import.php" method="post" enctype="multipart/form-data">
+                <!-- <form action="import.php" method="post" enctype="multipart/form-data">
                     <label for="csvFile">Choose a CSV file:</label>
                     <input type="file" name="csvFile" id="csvFile" accept=".csv">
                     <button type="submit" name="submit" class="btn btn-primary">Import</button>
                     <input type="hidden" name="import-attendance" value="1">
-                </form>
+                </form> -->
 
                 <!-- <form action="" method="get" class="inputtt">
                     <section class="form-row">
@@ -164,7 +164,8 @@ if (isset($_SESSION['teacherId'])) {
 
                 </form> -->
 
-                <table id="studTable" class="studdd table table-striped">
+            <div class="container p-4">
+            <table id="studTable" class="studdd table table-striped">
                     <thead id="studTableHead">
                         <tr>
                             <th>ID</th>
@@ -344,6 +345,7 @@ if (isset($_SESSION['teacherId'])) {
 
                     ?>
                 </table>
+            </div>
         
                 <!-- Export  -->
                <div class="d-flex justify-content-evenly align-items-center">
@@ -366,7 +368,7 @@ if (isset($_SESSION['teacherId'])) {
         </main>  
         <footer class="footer-lay d-flex justify-content-center align-items-center ">
        
-            <h4 class="C-footer">&copy; 2024 ICT-CSS 12. All rights reserved.</h4>
+            <h4 class="C-footer">&copy; 2024 ICT-A 12. All rights reserved.</h4>
         </footer>   
                     
         <script src="../bootstrap.bundle.min.js"></script>
